@@ -5,3 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+# Create users
+
+10.times do
+    User.create({
+        username: Faker::Internet.username
+    })
+end
+
+# Create conversations
+5.times do
+    Conversation.create()
+end
+
+# Create messages
+
+100.times do
+    Message.create({
+        user: User.all.sample,
+        conversation: Conversation.all.sample,
+        body: Faker::Quotes::Shakespeare.hamlet_quote
+    })
+end
