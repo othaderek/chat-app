@@ -1,7 +1,9 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :username, :messages, :conversations
+  attributes :username
+  has_many :conversations, include_nested_associations: true
 
   def conversations
-    self.object.conversations.uniq
+    conversations = self.object.conversations.uniq
+    # byebug
   end
 end

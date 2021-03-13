@@ -4,5 +4,5 @@ class ConversationSerializer < ActiveModel::Serializer
   def users
     self.object.users.uniq
   end
-  
+
 end
